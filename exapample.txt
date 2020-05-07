@@ -1,0 +1,60 @@
+// ex1.cpp : Defines the entry point for the console application.
+//
+// peractice.cpp : Defines the entry point for the console application.
+//
+#include "stdafx.h"
+#include"iostream"
+#include"string"
+#include"vector"
+using namespace std;
+void parseword(string str) 
+{ 
+	vector<string> l;
+	int j=str.length();
+	int i=0;
+    int start=0;
+    while(i <= j) 
+    { 
+		if(i==0)
+		{
+			string result = " ";
+			 while(str[start] != ' ') 
+			 {
+				 result += str[start++];
+				  i++;
+			 }
+			 l.push_back(result);
+			
+		}
+        if(str[i] == ' ' ) 
+        { 
+            start = i + 1; 
+			string result = " ";
+            while(str[start] != ' ') 
+			{
+				result += str[start++];
+				if(start==j)
+			        break;
+			}
+			l.push_back(result);
+              i=start;
+			  i--;
+        } 
+		if(start==j)
+		  break;
+        i++; 
+    } 
+	vector <string>::iterator it;
+	       for( it= l.begin();it!=l.end(); it++)
+	       {
+		       cout<<*it<<endl;
+		   }
+	 
+} 
+int _tmain(int argc, _TCHAR* argv[])
+{ 
+    string str = "Iskasajkjjdhjhksjdhk AM A GEEK jsjd sih sh sjdhj sdj h sjhdj jksdh sdh"; 
+   parseword(str); 
+    system("pause");
+    return 0; 
+} 
